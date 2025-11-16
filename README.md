@@ -108,10 +108,11 @@ Something like:
 
 ## Example Slash Commands
 
-Two example slash commands are provided in this repository:
+Three example slash commands are provided in this repository:
 
 - [Save to Notion](example-slashes/save-to-notion.md) - Creates a logbook entry using Notion MCP
 - [Save to Obsidian](example-slashes/save-to-obsidian.md) - Documents changes in an Obsidian notebook
+- [Email Me the Fix](example-slashes/email-me-the-fix.md) - Sends a summary email via Resend MCP with references to Notion/Obsidian docs
 
 ---
 
