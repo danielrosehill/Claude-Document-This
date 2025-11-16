@@ -106,13 +106,29 @@ Something like:
 
 ---
 
-## Example Slash Commands
+## Example Configurations
 
-Three example slash commands are provided in this repository:
+This repository includes example slash commands and agents to demonstrate different approaches to documenting system fixes:
 
-- [Save to Notion](example-slashes/save-to-notion.md) - Creates a logbook entry using Notion MCP
-- [Save to Obsidian](example-slashes/save-to-obsidian.md) - Documents changes in an Obsidian notebook
-- [Email Me the Fix](example-slashes/email-me-the-fix.md) - Sends a summary email via Resend MCP with references to Notion/Obsidian docs
+| File | Type | Purpose | Link |
+|------|------|---------|------|
+| `save-to-notion.md` | Slash Command | Creates a detailed logbook entry in Notion using Notion MCP | [View](example-slashes/save-to-notion.md) |
+| `save-to-obsidian.md` | Slash Command | Documents changes in an Obsidian notebook with Git push | [View](example-slashes/save-to-obsidian.md) |
+| `email-me-the-fix.md` | Slash Command | Sends summary email via Resend MCP with platform references | [View](example-slashes/email-me-the-fix.md) |
+| `fix-documenter.md` | Agent | Orchestrates documentation across multiple platforms based on user preference | [View](example-agents/fix-documenter.md) |
+
+### Using the Agent vs Slash Commands
+
+**Slash Commands** are best when you:
+- Know exactly which platform you want to use
+- Want direct, immediate documentation
+- Prefer manual control over the process
+
+**Fix Documenter Agent** is best when you:
+- Want to be asked where to document the fix
+- Need documentation across multiple platforms
+- Prefer an intelligent assistant that handles the workflow
+- Want cross-references between platforms automatically
 
 ---
 
