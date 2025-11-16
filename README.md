@@ -4,6 +4,8 @@
 [![Claude Code Projects Index](https://img.shields.io/badge/My_Claude_Code-Projects-blue)](https://github.com/danielrosehill/Claude-Code-Repos-Index)
 [![GitHub Master Index](https://img.shields.io/badge/GitHub-Master_Index-green)](https://github.com/danielrosehill/Github-Master-Index)
 
+---
+
 ## The Need
 
 Claude Code is extremely useful for systems administration.
@@ -14,13 +16,17 @@ Guardrails aside, it's prudent to note, carefully, what changes were undertaken.
 
 Claude is good at delivering these logs unsolicited via the terminal. 
 
-But without some external tooling, those logs will remain there - printed to the terminal. Obviously this is not a viable format for long term retention. 
+But without some external tooling, those logs will remain there - printed to the terminal. Obviously this is not a viable format for long term retention.
+
+---
 
 ## Ways To Skin This Cat
 
-As is now commonplace in AI, the challenge is less "how could this possibly be done?" and more "from the various ways in which I could do this, which makes the most sense?"
+As is now commonplace in AI, the challenge is less *"how could this possibly be done?"* and more *"from the various ways in which I could do this, which makes the most sense?"*
 
 I am sharing this repo to offer a couple of methods I've had success with.
+
+---
 
 ### 1: MCP to Anything (Notion, Confluence, Google Drive, Email & More!)
 
@@ -37,13 +43,16 @@ Many platforms have reliable MCPs or can be accessed through existing tools:
 The slash command here can be (approximately):
 
 **For Notion:**
-"Thanks for fixing that. Please now invoke Notion MCP to create a new page documenting, in detail, the fix that we just applied. Ensure that you capture this in an orderly fashion noting the problem, the remediation, and today's date."
+
+*"Thanks for fixing that. Please now invoke Notion MCP to create a new page documenting, in detail, the fix that we just applied. Ensure that you capture this in an orderly fashion noting the problem, the remediation, and today's date."*
 
 **For Email:**
-"Thanks for fixing that. Please email me a detailed summary of the fix we just applied, including the problem, solution, and any relevant commands or file changes."
+
+*"Thanks for fixing that. Please email me a detailed summary of the fix we just applied, including the problem, solution, and any relevant commands or file changes."*
 
 **For Google Drive:**
-"Please create a Google Doc summarizing this fix and save it to my 'System Administration' folder in Drive."
+
+*"Please create a Google Doc summarizing this fix and save it to my 'System Administration' folder in Drive."*
 
 Sometimes, it's hard to know whether a case like this is best tackled through a subagent or slash command or both. 
 
@@ -54,7 +63,9 @@ In that model you might have:
 - Subagent for creating these logbook entries 
 - Slash commands instructing how to use specific MCPs with target-specific formatting instructions 
 
-In the simple implementation we just have a slash command: write out a note and put it here, basically. 
+In the simple implementation we just have a slash command: write out a note and put it here, basically.
+
+---
 
 ### 2: Obsidian Notebooks 
 
@@ -85,13 +96,15 @@ I have an Obsidian notebook called "Notes From AI"
 
 I add this instruction to my home folder `CLAUDE.md` (or approximately):
 
-"Sometimes I might ask you to document things for my own reference. If so document them here."
+*"Sometimes I might ask you to document things for my own reference. If so document them here."*
 
 What's nice, too, is that you can even ask Claude to keep the mess in order.
 
 Something like:
 
-"Document this in the 'Notes from AI' Obsidian notebook at {path}. Save it into a logical subfolder. For example: GPU-Fixes. If it doesn't exist, create it. If the note should be in a subfolder, create it." (etc).
+*"Document this in the 'Notes from AI' Obsidian notebook at {path}. Save it into a logical subfolder. For example: GPU-Fixes. If it doesn't exist, create it. If the note should be in a subfolder, create it."* (etc).
+
+---
 
 ## Example Slash Commands
 
