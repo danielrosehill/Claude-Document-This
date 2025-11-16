@@ -50,6 +50,8 @@ The slash command here can be (approximately):
 
 *"Thanks for fixing that. Please email me a detailed summary of the fix we just applied, including the problem, solution, and any relevant commands or file changes."*
 
+**Pro Tip:** If you have a catch-all email setup, create a dedicated address like `claude-logs@yourdomain.com` to automatically organize all AI-generated fix documentation in a single email folder/tag, keeping your main inbox clean.
+
 **For Google Drive:**
 
 *"Please create a Google Doc summarizing this fix and save it to my 'System Administration' folder in Drive."*

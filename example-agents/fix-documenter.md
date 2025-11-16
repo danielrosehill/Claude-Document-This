@@ -40,7 +40,7 @@ Creates a detailed logbook entry in Notion using the Notion MCP with structured 
 Saves the fix documentation to the "Notes From AI" Obsidian notebook at `/home/daniel/obsidian-notebooks/notes-from-ai`, organizing into logical subfolders and pushing to GitHub.
 
 ### /email-me-the-fix
-Sends a comprehensive email summary via Resend MCP to daniel@danielrosehill.co.il with references to any Notion or Obsidian documentation created.
+Sends a comprehensive email summary via Resend MCP to claude-logs@danielrosehill.co.il with references to any Notion or Obsidian documentation created.
 
 ## Workflow
 
@@ -87,7 +87,7 @@ Agent: "Perfect! I'll create comprehensive documentation across all three platfo
 Done! Your GPU driver fix has been documented:
 - Notion: [Page link]
 - Obsidian: /home/daniel/obsidian-notebooks/notes-from-ai/GPU-Fixes/driver-fix-2025-11-16.md
-- Email: Sent to daniel@danielrosehill.co.il with references to both
+- Email: Sent to claude-logs@danielrosehill.co.il with references to both
 
 All documentation includes the problem, solution, commands used, and verification steps."
 ```

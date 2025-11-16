@@ -4,11 +4,14 @@ Use the Resend MCP to send a detailed email documenting the system fix that was 
 
 ## Instructions
 
-Send an email to daniel@danielrosehill.co.il using the Resend MCP with the following configuration:
+Send an email to claude-logs@danielrosehill.co.il using the Resend MCP with the following configuration:
 
 **Sender:** claude@danielrosehill.co.il
 **Sender Name:** Claude Code
+**Recipient:** claude-logs@danielrosehill.co.il
 **Subject:** System Fix Applied: [Brief Description]
+
+**Note:** Using a dedicated email address like `claude-logs@` allows you to organize all Claude-generated fix documentation in a single email folder/tag, keeping your main inbox clean.
 
 ## Email Content
 
