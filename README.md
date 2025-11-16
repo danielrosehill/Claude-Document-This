@@ -1,8 +1,22 @@
-# Claude Fix Logger
+## Fix Documentation Plugin
 
-[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-8A2BE2)](https://github.com/anthropics/claude-code)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/danielrosehill/Claude-Fix-Logger)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+This Claude Code plugin is part of my public marketplace.
+
+**To install the marketplace:**
+
+```bash
+/plugin marketplace add https://github.com/danielrosehill/Claude-Code-Plugins
+```
+
+**Plugin Installation:**
+
+To install this plugin:
+
+```bash
+/plugin install fix-documentation@danielrosehill
+```
+
+---
 
 A Claude Code plugin for documenting system administration fixes and changes across multiple platforms (Notion, Obsidian, Email).
 
