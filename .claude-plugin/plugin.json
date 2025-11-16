@@ -1,0 +1,51 @@
+{
+  "name": "claude-fix-logger",
+  "description": "Document system administration fixes and changes across multiple platforms (Notion, Obsidian, Email)",
+  "version": "1.0.0",
+  "author": {
+    "name": "Daniel Rosehill",
+    "email": "public@danielrosehill.com",
+    "url": "https://danielrosehill.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielrosehill/Claude-Fix-Logger"
+  },
+  "license": "MIT",
+  "commands": [
+    "./commands/save-to-notion.md",
+    "./commands/save-to-obsidian.md",
+    "./commands/email-me-the-fix.md"
+  ],
+  "agents": [
+    "./agents/fix-documenter.md"
+  ],
+  "keywords": [
+    "documentation",
+    "system-administration",
+    "logging",
+    "notion",
+    "obsidian",
+    "email",
+    "mcp"
+  ],
+  "requirements": {
+    "mcpServers": [
+      {
+        "name": "notion",
+        "description": "Required for /save-to-notion command",
+        "optional": true
+      },
+      {
+        "name": "resend",
+        "description": "Required for /email-me-the-fix command",
+        "optional": true
+      },
+      {
+        "name": "time",
+        "description": "Used for accurate timestamps",
+        "optional": true
+      }
+    ]
+  }
+}

@@ -1,137 +1,318 @@
-# Claude, Document This!
+# Claude Fix Logger
 
-[![Claude Code](https://img.shields.io/badge/Claude-Code-8A2BE2)](https://github.com/anthropics/claude-code)
-[![Claude Code Projects Index](https://img.shields.io/badge/My_Claude_Code-Projects-blue)](https://github.com/danielrosehill/Claude-Code-Repos-Index)
-[![GitHub Master Index](https://img.shields.io/badge/GitHub-Master_Index-green)](https://github.com/danielrosehill/Github-Master-Index)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-8A2BE2)](https://github.com/anthropics/claude-code)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/danielrosehill/Claude-Fix-Logger)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
----
-
-## The Need
-
-Claude Code is extremely useful for systems administration.
-
-OS admin can be done on local environments or on the server. 
-
-Guardrails aside, it's prudent to note, carefully, what changes were undertaken. 
-
-Claude is good at delivering these logs unsolicited via the terminal. 
-
-But without some external tooling, those logs will remain there - printed to the terminal. Obviously this is not a viable format for long term retention.
+A Claude Code plugin for documenting system administration fixes and changes across multiple platforms (Notion, Obsidian, Email).
 
 ---
 
-## Ways To Skin This Cat
+## Overview
 
-As is now commonplace in AI, the challenge is less *"how could this possibly be done?"* and more *"from the various ways in which I could do this, which makes the most sense?"*
+System administration with Claude Code is powerful, but those terminal outputs documenting what changed aren't suitable for long-term retention. **Claude Fix Logger** solves this by providing commands and agents to automatically capture comprehensive fix documentation across your preferred platforms.
 
-I am sharing this repo to offer a couple of methods I've had success with.
+## Features
 
----
-
-### 1: MCP to Anything (Notion, Confluence, Google Drive, Email & More!)
-
-This is a great use for user level MCPs (the type that are always and can thus be accessed from wherever Claude happens to be on your OS).
-
-Many platforms have reliable MCPs or can be accessed through existing tools:
-
-- **Notion** - Reliable MCP for creating documentation pages
-- **Confluence** - Document system changes in your team wiki
-- **Google Drive** - Save to Docs for easy sharing and collaboration
-- **Email** - Simple but effective - email fixes to yourself for later reference
-- **Slack/Discord** - Post to channels for team visibility
-
-The slash command here can be (approximately):
-
-**For Notion:**
-
-*"Thanks for fixing that. Please now invoke Notion MCP to create a new page documenting, in detail, the fix that we just applied. Ensure that you capture this in an orderly fashion noting the problem, the remediation, and today's date."*
-
-**For Email:**
-
-*"Thanks for fixing that. Please email me a detailed summary of the fix we just applied, including the problem, solution, and any relevant commands or file changes."*
-
-**Pro Tip:** If you have a catch-all email setup, create a dedicated address like `claude-logs@yourdomain.com` to automatically organize all AI-generated fix documentation in a single email folder/tag, keeping your main inbox clean.
-
-**For Google Drive:**
-
-*"Please create a Google Doc summarizing this fix and save it to my 'System Administration' folder in Drive."*
-
-Sometimes, it's hard to know whether a case like this is best tackled through a subagent or slash command or both. 
-
-The answer may be the extent to which you want the operation to be autonomous. If you *do* then subagents might be warranted. The autonomous thinking here might be: *"would the user prefer this to be emailed to them, shared in Google Drive, or added to their personal notebook? I'll figure that out and then run the relevant slash command"*
-
-In that model you might have:
-
-- Subagent for creating these logbook entries 
-- Slash commands instructing how to use specific MCPs with target-specific formatting instructions 
-
-In the simple implementation we just have a slash command: write out a note and put it here, basically.
+- **Multiple Documentation Platforms**: Save to Notion, Obsidian, or email
+- **Intelligent Agent**: Orchestrates documentation across platforms based on your preference
+- **Structured Templates**: Consistent formatting for problem/solution documentation
+- **Cross-Platform References**: Links between Notion, Obsidian, and email for comprehensive trails
+- **MCP Integration**: Leverages Notion, Resend, and Time MCPs for seamless automation
 
 ---
 
-### 2: Obsidian Notebooks 
+## Installation
 
-I love Obsidian notebooks!
-
-They work a treat with Claude Code because they are perfect for storing wikis/information.
-
-When I ask Claude to document something it did on my system, my motivations are usually multiple:
-
-1) Tell me what you did just in case it turns out to be a horribly misguided decision that went above my head and I need to clean this up later (minority of cases)
-2) Tell me what you did so I can keep good documentation (all cases) 
-3) Tell me what you did so that I can learn more about this for my own education (most cases) 
-
-To make this work you can just:
-
-- Create an Obsidian notebook for storing "stuff AI figures out"  
-- Write a slash command asking Claude to write an entry there and then push the repo 
-
-
-This way:
-
-- The information gets predictably documented in a notebook that you can even keep just for AI agent authored content (or mix it up!) 
-- Claude even takes care of pushing it to Github 
-
-I have an Obsidian notebook called "Notes From AI"
-
-`/home/daniel/obsidian-notebooks/notes-from-ai`
-
-I add this instruction to my home folder `CLAUDE.md` (or approximately):
-
-*"Sometimes I might ask you to document things for my own reference. If so document them here."*
-
-What's nice, too, is that you can even ask Claude to keep the mess in order.
-
-Something like:
-
-*"Document this in the 'Notes from AI' Obsidian notebook at {path}. Save it into a logical subfolder. For example: GPU-Fixes. If it doesn't exist, create it. If the note should be in a subfolder, create it."* (etc).
+Available via [Daniel's Claude Code Plugins Marketplace](https://github.com/danielrosehill/Claude-Code-Plugins).
 
 ---
 
-## Example Configurations
+## Commands
 
-This repository includes example slash commands and agents to demonstrate different approaches to documenting system fixes:
+### `/save-to-notion`
 
-| File | Type | Purpose | Link |
-|------|------|---------|------|
-| `save-to-notion.md` | Slash Command | Creates a detailed logbook entry in Notion using Notion MCP | [View](example-slashes/save-to-notion.md) |
-| `save-to-obsidian.md` | Slash Command | Documents changes in an Obsidian notebook with Git push | [View](example-slashes/save-to-obsidian.md) |
-| `email-me-the-fix.md` | Slash Command | Sends summary email via Resend MCP with platform references | [View](example-slashes/email-me-the-fix.md) |
-| `fix-documenter.md` | Agent | Orchestrates documentation across multiple platforms based on user preference | [View](example-agents/fix-documenter.md) |
+Creates a detailed logbook entry in Notion using the Notion MCP.
 
-### Using the Agent vs Slash Commands
+**Usage:**
+```
+/save-to-notion
+```
 
-**Slash Commands** are best when you:
-- Know exactly which platform you want to use
-- Want direct, immediate documentation
-- Prefer manual control over the process
+**Requirements:**
+- Notion MCP configured
+- Time MCP (optional, for accurate timestamps)
 
-**Fix Documenter Agent** is best when you:
-- Want to be asked where to document the fix
-- Need documentation across multiple platforms
-- Prefer an intelligent assistant that handles the workflow
-- Want cross-references between platforms automatically
+**What it does:**
+- Gets current date/time
+- Formats fix documentation with problem/solution structure
+- Creates page in your Notion workspace
+- Confirms successful creation
 
 ---
 
-To view an index of my Claude Code related projects, [click here](https://github.com/danielrosehill/Claude-Code-Repos-Index).
+### `/save-to-obsidian`
+
+Documents changes in an Obsidian notebook and pushes to GitHub.
+
+**Usage:**
+```
+/save-to-obsidian
+```
+
+**Configuration:**
+Update the path in [commands/save-to-obsidian.md](commands/save-to-obsidian.md) to match your Obsidian notebook location (default: `/home/daniel/obsidian-notebooks/notes-from-ai`).
+
+**What it does:**
+- Creates markdown note in your Obsidian vault
+- Organizes into logical subfolders (e.g., "GPU-Fixes")
+- Pushes notebook to GitHub
+- Provides file path confirmation
+
+---
+
+### `/email-me-the-fix`
+
+Sends comprehensive email summary via Resend MCP.
+
+**Usage:**
+```
+/email-me-the-fix
+```
+
+**Requirements:**
+- Resend MCP configured
+
+**Configuration:**
+Update recipient and sender addresses in [commands/email-me-the-fix.md](commands/email-me-the-fix.md).
+
+**What it does:**
+- Formats fix documentation in clean HTML
+- Includes references to Notion/Obsidian docs if created
+- Sends to dedicated email (e.g., `claude-logs@yourdomain.com`)
+- Provides confirmation of send
+
+**Pro Tip:** Use a dedicated email address like `claude-logs@yourdomain.com` to organize all AI-generated fix documentation in a single email folder/tag.
+
+---
+
+## Agent
+
+### `fix-documenter`
+
+An intelligent agent that orchestrates documentation across multiple platforms based on your preference.
+
+**How to invoke:**
+Claude Code will automatically suggest this agent when you complete a system fix, or you can explicitly invoke it:
+```
+Please document this fix
+```
+
+**What it does:**
+1. Analyzes the conversation to understand the fix applied
+2. Asks which platform(s) you prefer (Notion, Obsidian, Email, or all)
+3. Executes the appropriate slash commands in sequence
+4. Includes cross-references when using multiple platforms
+5. Confirms completion with summary of what was documented
+
+**Example interaction:**
+```
+User: "Great, that fixed the GPU driver issue!"
+
+Agent: "Excellent! Where would you like me to document this GPU driver fix?
+
+Options:
+1. Notion - Structured page in your Notion workspace
+2. Obsidian - Markdown note in your 'Notes From AI' notebook
+3. Email - Summary sent to your email
+4. All three - Complete documentation trail
+
+What's your preference?"
+
+User: "All three please"
+
+Agent: [Executes /save-to-notion, /save-to-obsidian, /email-me-the-fix]
+```
+
+---
+
+## Configuration
+
+### MCP Requirements
+
+This plugin works best with the following MCPs configured:
+
+| MCP | Required For | Optional? |
+|-----|--------------|-----------|
+| **Notion** | `/save-to-notion` command | Yes |
+| **Resend** | `/email-me-the-fix` command | Yes |
+| **Time** | Accurate timestamps | Yes |
+
+All MCPs are optional - commands that require unavailable MCPs simply won't function.
+
+### Customizing Paths
+
+**Obsidian Notebook:**
+Edit [commands/save-to-obsidian.md](commands/save-to-obsidian.md) line 7:
+```markdown
+/home/your-username/obsidian-notebooks/your-notebook-name
+```
+
+**Email Recipients:**
+Edit [commands/email-me-the-fix.md](commands/email-me-the-fix.md) lines 7-12 to update sender/recipient addresses.
+
+---
+
+## Documentation Template
+
+All commands follow this consistent structure:
+
+```markdown
+# Fix Title
+
+## Problem
+Summarize the problem that was resolved or what was optimized.
+
+## Fix
+Summarize the fix/remediation/optimization.
+
+If several failed approaches were tried first, note them only if
+that information might be significant in the future. Otherwise,
+just document what worked.
+```
+
+**Formatting Guidelines:**
+- Code blocks in fenced code blocks
+- Clear headings and subheadings
+- Professional but concise tone
+- Includes metadata (date, time, verification)
+
+---
+
+## Use Cases
+
+### 1. Quick Single-Platform Documentation
+```bash
+# Just fixed something, save to Obsidian
+/save-to-obsidian
+```
+
+### 2. Comprehensive Multi-Platform Trail
+```bash
+# Important fix, document everywhere
+/save-to-notion
+/save-to-obsidian
+/email-me-the-fix
+```
+
+### 3. Intelligent Agent Orchestration
+```bash
+User: "Fixed the kernel panic issue!"
+User: "Please document this"
+# Agent asks preference and handles the workflow
+```
+
+---
+
+## Plugin Structure
+
+```
+claude-fix-logger/
+├── .claude-plugin/
+│   └── plugin.json          # Plugin manifest
+├── commands/
+│   ├── save-to-notion.md    # Notion documentation command
+│   ├── save-to-obsidian.md  # Obsidian documentation command
+│   └── email-me-the-fix.md  # Email summary command
+├── agents/
+│   └── fix-documenter.md    # Orchestration agent
+├── LICENSE
+├── CHANGELOG.md
+└── README.md
+```
+
+---
+
+## Why Document System Fixes?
+
+When using Claude Code for system administration, documenting changes is crucial for:
+
+1. **Accountability**: Know exactly what was changed and when
+2. **Learning**: Build a personal knowledge base of solutions
+3. **Recovery**: Quickly understand and reverse changes if needed
+4. **Team Sharing**: Communicate fixes to team members
+5. **Compliance**: Maintain audit trails for regulated environments
+
+Without external tooling, terminal outputs are ephemeral. This plugin ensures your hard-won solutions are captured and organized.
+
+---
+
+## Examples
+
+### GPU Driver Fix Documentation
+After resolving a GPU driver issue, run `/save-to-obsidian` to create:
+
+```markdown
+# AMD ROCm Driver Fix - 2025-11-16
+
+## Problem
+ROCm was failing to detect GPU after kernel update to 6.14.0-15
+
+## Fix
+Reinstalled ROCm with proper kernel headers:
+```bash
+sudo apt install linux-headers-$(uname -r)
+sudo apt reinstall rocm-dkms
+sudo reboot
+```
+
+Verification: `rocm-smi` now shows GPU properly
+```
+
+### Networking Issue Trail
+For a complex networking fix, use the agent to document across all platforms:
+- Notion: Detailed technical reference with diagrams
+- Obsidian: Quick reference in "Network-Fixes" folder
+- Email: Summary with links to both for easy access
+
+---
+
+## Contributing
+
+Contributions welcome! Please feel free to submit issues or pull requests.
+
+### Development
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test with Claude Code
+5. Submit a pull request
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+## Author
+
+**Daniel Rosehill**
+- Website: [danielrosehill.com](https://danielrosehill.com)
+- Email: public@danielrosehill.com
+- GitHub: [@danielrosehill](https://github.com/danielrosehill)
+
+---
+
+## Related Projects
+
+- [Claude Code Repos Index](https://github.com/danielrosehill/Claude-Code-Repos-Index) - My other Claude Code projects
+- [GitHub Master Index](https://github.com/danielrosehill/Github-Master-Index) - All my GitHub repositories
+
+---
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and updates.
