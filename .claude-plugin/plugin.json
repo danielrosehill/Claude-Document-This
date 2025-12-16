@@ -8,10 +8,7 @@
     "url": "https://danielrosehill.com"
   },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danielrosehill/Claude-Document-This"
-  },
+  "repository": "https://github.com/danielrosehill/Claude-Document-This",
   "commands": [
     "./commands/email-me-the-fix.md",
     "./commands/save-to-notion.md",
